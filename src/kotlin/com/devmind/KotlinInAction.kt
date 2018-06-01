@@ -110,7 +110,7 @@ fun kotlinInAction() {
 
 
 
-    // Vos fonctions peuvent être stockées dans des variables, vous n'avez pas besoin de définir le type de retour
+    // vous n'avez pas besoin de définir le type de retour
     fun country() = "Togo"
 
     println("Hello ${country()}")     // string template  => Hello Togo
@@ -188,7 +188,7 @@ fun kotlinInAction() {
     // Extension de fonction utile quand on ne maitrise pas la fonction
     fun User.age() = LocalDate.now().year - this.birthYear
 
-    println("${user1.name} a ${user1.age()} ans")
+    println("${user1.name} a ${user1.age()} ans")   //  => Guillaume a 41 ans
 
 
 
@@ -260,7 +260,7 @@ fun kotlinInAction() {
     // L'autre cas d'utlisation est de simplifier la gestion des stream par rapport à Java
     val users = listOf(user1, user2)
 
-    users.map { it.name }.forEach { println(it) }
+    users.map{ it.name }.forEach { println(it) }
 
 
 
