@@ -16,7 +16,7 @@ fun kotlinInAction() {
 
 
     fun main(args: Array<String>) {
-        println("Hello Togo in Kotlin")
+        println("Hello Devoxx Morocco")
     }
 
     // fun -> function
@@ -46,7 +46,7 @@ fun kotlinInAction() {
 
 
 
-    // En Kotlin les valeurs sont immutables
+    // En Kotlin les valeurs sont immuables
     val test1 = 23
     // Si vous voulez une donnée mutable vous devez utiliser
     var test2 = "Test"
@@ -88,8 +88,8 @@ fun kotlinInAction() {
     test4 = null
 
 
-    //test3 = test4                  // => erreur
-    //test3 = test4!!                  // => erreur à l'excution NPE
+    // test3 = test4                  // => erreur
+    // test3 = test4!!                  // => erreur à l'excution NPE
 
 
 
@@ -111,9 +111,9 @@ fun kotlinInAction() {
 
 
     // vous n'avez pas besoin de définir le type de retour
-    fun country() = "Togo"
+    fun country() = "Morocco"
 
-    println("Hello ${country()}")     // string template  => Hello Togo
+    println("Hello ${country()}")     // string template  => Hello Morocco
 
     // Vous pouvez définir des paramètres par défaut
     fun add(one: Int, two: Int = 2) = one + two
@@ -260,11 +260,8 @@ fun kotlinInAction() {
     // L'autre cas d'utlisation est de simplifier la gestion des stream par rapport à Java
     val users = listOf(user1, user2)
 
-    users.map{ it.name }.forEach { println(it) }
 
-
-
-
+    users.map { it.name }.forEach { println(it) }
 
 
 
