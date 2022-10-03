@@ -16,15 +16,17 @@ fun kotlinInAction() {
 
 
     fun main(args: Array<String>) {
-        println("Hello Devoxx Morocco")
+        println("Hello EMSE")
     }
 
+
+
     // fun -> function
-    // kotlin évite le boilerplate :
-    //                     => point virgule,
-    //                     => arguments à la typescript
-    //                     => tout est public par défaut
-    //                     => pas besoin de définir un type void
+    // kotlin avoid boilerplate :
+    //                     => no semicolon,
+    //                     => as typescript arguments
+    //                     => everything is public by default
+    //                     => no need to define void type
 
 
 
@@ -46,15 +48,16 @@ fun kotlinInAction() {
 
 
 
-    // En Kotlin les valeurs sont immuables
+    // In Kotlin values are immutable
     val test1 = 23
-    // Si vous voulez une donnée mutable vous devez utiliser
+    // If you want mutable data you have to use
     var test2 = "Test"
 
 
-    // test1 = 3    // => erreur test1 est immutable
+    // test1 = 3    // => error test1 is immutable
     test2 = "Test2"
 
+    // As you can see no need to define the type. When Kotlin can guess it
 
 
 
@@ -76,20 +79,18 @@ fun kotlinInAction() {
 
 
 
-    // Comme vous pouvez le voir pas besoin de définir le type. Quand Kotlin peut le deviner
-    // vous n'avez pas besoin de le donner
     val test3: String
 
-    // Kotlin est null proof
-    // test3 = null              // => erreur
+    // Kotlin is null proof
+    // test3 = null              // => error
 
-    // Si une valeur peut être nulle c'est à vous de le prévoir
+    // If a value can be zero, it is up to you to predict it
     val test4: String?
     test4 = null
 
 
-    // test3 = test4                  // => erreur
-    // test3 = test4!!                  // => erreur à l'excution NPE
+    // test3 = test4                  // => error
+    // test3 = test4!!                  // => error on runtime NPE
 
 
 
@@ -110,12 +111,12 @@ fun kotlinInAction() {
 
 
 
-    // vous n'avez pas besoin de définir le type de retour
+    //you don't need to set the return type
     fun country() = "Morocco"
 
     println("Hello ${country()}")     // string template  => Hello Morocco
 
-    // Vous pouvez définir des paramètres par défaut
+    // You can set default settings
     fun add(one: Int, two: Int = 2) = one + two
 
     println(add(10))               //  => 12
@@ -149,22 +150,23 @@ fun kotlinInAction() {
 
 
 
-    // Data class. Plus besoin de perdre du temps à définir des POJO... Tout ce qu'on a vu s'applique :
-    //    propriétés immutables et non nullables par défaut
-    //    valeurs par défaut
+    // Data class. No need to waste time defining POJOs anymore... Everything we have seen applies:
+    //    default immutable and non-nullable properties
+    //    default values
     data class User(val name: String,
                     val birthYear: Int,
                     val satisfaction: Int = 5,
                     val hobby: String? = null)
 
 
-    // Pas de new
+    // No  new to define a new instance
     val user1 = User("Guillaume", 1977)
     val user2 = User("Federer", 1981, hobby = "tennis")
 
-    // Pas besoin de génerer, getter, setter , equals hashcode
+    // No need to generate, getter, setter , equals hashcode
     println("${user1.name} a ${LocalDate.now().year - user1.birthYear} ans")       //  => Guillaume a 41 ans
 
+    // and you have some nice feature to copy a data class and keep immutability ...
 
 
 
@@ -184,11 +186,10 @@ fun kotlinInAction() {
 
 
 
-
-    // Extension de fonction utile quand on ne maitrise pas la fonction
+    // function extension is useful when you do not manage a class or a function
     fun User.age() = LocalDate.now().year - this.birthYear
 
-    println("${user1.name} a ${user1.age()} ans")   //  => Guillaume a 41 ans
+    println("${user1.name} a ${user1.age()} ans")   //  => Guillaume a 45 ans
 
 
 
@@ -215,7 +216,7 @@ fun kotlinInAction() {
 
 
 
-    // Fonctions d'ordre supérieures, une fonction peut être un paramètre
+    // Higher order functions, a function can be a parameter
     fun wrap(block: () -> Unit){
         println("*****")
         block()
@@ -238,7 +239,7 @@ fun kotlinInAction() {
 
 
 
-    // C'est beaucoup utilisé dans Android. Exemple avec un objet lié à la vue et mutable
+    // It's used a lot in Android. Example with view-bound and mutable object
     data class Text(var value: String = "", var color: String = "#000000")
 
     val text = Text().apply {
@@ -257,7 +258,7 @@ fun kotlinInAction() {
 
 
 
-    // L'autre cas d'utlisation est de simplifier la gestion des stream par rapport à Java
+    // The other use case is to simplify the management of streams compared to Java
     val users = listOf(user1, user2)
 
 
